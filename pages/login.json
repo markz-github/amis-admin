@@ -1,0 +1,68 @@
+{
+    "type": "page",
+    "title": "这是一个登录页面",
+    "body": [
+      {
+        "type": "input-text",
+        "label": "账号",
+        "name": "userName",
+        "id": "u:145faa3b72cd",
+        "visible": true,
+        "size": "md",
+        "mode": "horizontal"
+      },
+      {
+        "type": "input-text",
+        "label": "密码",
+        "name": "password",
+        "id": "u:1853e45856fe",
+        "size": "md",
+        "mode": "horizontal",
+        "hidden": false
+      },
+      {
+        "type": "button",
+        "label": "登录",
+        "onEvent": {
+          "click": {
+            "actions": [
+              {
+                "ignoreError": false,
+                "outputVar": "responseResult",
+                "actionType": "ajax",
+                "options": {},
+                "api": {
+                  "url": "http://localhost:8080/login",
+                  "method": "post",
+                  "requestAdaptor": "",
+                  "adaptor": "",
+                  "messages": {
+                    "success": "请求成功",
+                    "failed": "请求失败"
+                  },
+                  "dataType": "json",
+                  "data": {
+                    "userName": "${userName}",
+                    "password": "${password}",
+                    "&": "$$"
+                  },
+                  "responseData": {
+                    "&": "$$",
+                    "code": "${code}",
+                    "msg": "${msg}",
+                    "data": "${data}"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "id": "u:e26d4d8b5f21"
+      }
+    ],
+    "id": "u:c0c6e2429aab",
+    "asideResizor": false,
+    "pullRefresh": {
+      "disabled": true
+    }
+  }
